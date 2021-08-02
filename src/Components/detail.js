@@ -60,7 +60,7 @@ const Detail = () => {
       {formik => (
         
           <Form>
-          <h3>Sign Up</h3>
+          <h3>Deta</h3>
           <div className="form-group">
           <label>First name</label>
           <input type="text"

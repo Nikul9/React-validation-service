@@ -9,7 +9,7 @@ import * as yup from 'yup';
 
 const userDetails = () => {
     const [user ,  setUser ] = useState({
-        _id : "" , usr_image : File , usr_firstname : "" , usr_lastname : ""  , usr_dob: "",
+        _id : "" , usr_image : '' , usr_firstname : "" , usr_email : "" ,usr_lastname : ""  , usr_dob: "",
         usr_phone : "" , usr_password : "" 
     })
     const { state , dispatch } = useContext(userDetail);
@@ -40,12 +40,12 @@ const userDetails = () => {
         
         <Formik
       initialValues={{
-        usr_firstname: '',
-        usr_lastname: '',
-        usr_email: '',
-        usr_phone: '',
-        usr_dob:  '',
-        usr_password: ''
+        usr_firstname: user.usr_firstname,
+        usr_lastname: user.usr_lastname,
+        usr_email: user.usr_email,
+        usr_phone: user.usr_phone,
+        usr_dob:  user.usr_dob,
+        usr_password: user.usr_password
       }}
       validationSchema={validate}
       onSubmit={values => {
@@ -69,7 +69,7 @@ const userDetails = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 name='usr_image'
-                value={user.usr_image}
+              //  value={user.usr_image}
                 className="form-control" />
                 {formik.touched.usr_image && formik.errors.usr_image ? <div className='error'>{formik.errors.usr_image}</div>  : null}
         </div>
@@ -77,7 +77,7 @@ const userDetails = () => {
             <label>First name</label>
             <input type="text" 
                 onChange={formik.handleChange}
-                value={user.usr_firstname}
+                // value={user.usr_firstname}
                 name='usr_firstname'
                 onBlur={formik.handleBlur}
                 className="form-control" 
@@ -90,8 +90,8 @@ const userDetails = () => {
             <input type="text"
                     onChange={formik.handleChange}
                     name='usr_lastname' 
-                    value={user.usr_lastname}
                     onBlur={formik.handleBlur}
+                  //  value={user.usr_email}
                     className="form-control" 
                     placeholder="Last name" />
                 {formik.touched.usr_lastname && formik.errors.usr_lastname ? <div className='error'>{formik.errors.usr_lastname}</div> : null}
@@ -103,7 +103,7 @@ const userDetails = () => {
                     onChange={formik.handleChange}
                     name='usr_email'
                     onBlur={formik.handleBlur}
-                    value={user.usr_email}
+                   // value={user.usr_email}
                     className="form-control" 
                     placeholder="Enter email" />
                 {formik.touched.usr_email && formik.errors.usr_email ? <div className='error'>{formik.errors.usr_email}</div> : null}
@@ -114,7 +114,7 @@ const userDetails = () => {
             <input type="text" 
                    name='usr_phone'
                    onBlur={formik.handleBlur}
-                   value={user.usr_phone}
+                 //  value={user.usr_phone}
                    onChange={formik.handleChange}
                    className="form-control" 
                    placeholder="Mobile Number" />
@@ -128,7 +128,7 @@ const userDetails = () => {
                    onBlur={formik.handleBlur}
                    onChange={formik.handleChange}
                    className="form-control" 
-                   value={user.usr_dob}
+                 //  value={user.usr_dob}
                    placeholder="Date Of Birth" />
                 {formik.touched.usr_dob && formik.errors.usr_dob ? <div className='error'>{formik.errors.usr_dob}</div> : null}
         </div>
@@ -138,7 +138,7 @@ const userDetails = () => {
             <input  type="password" 
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={user.usr_password}
+                  //  value={user.usr_password}
                     name='usr_password'
                     className="form-control" 
                     placeholder="Enter password" />
